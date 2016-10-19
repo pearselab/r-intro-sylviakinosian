@@ -9,6 +9,20 @@ c(c(1,2,3), c(4,5,6))
 #     - they need to be of the same type, though!
 c(1,2, "three")
 
+# cat - concatenate and print
+# outputs the objects, concatenating the representations - much mess conversion than print
+# from help: cat prints the iterrations of the function
+iter <- stats::rpois(1, lambda = 10)
+## print an informative message
+cat("iteration = ", iter <- iter + 1, "\n")
+
+#cbind - combine R objects y rows or columns, includes rbind
+#combines specific outputs of an Bayesian MCMC (the "out" object)
+pop<-rbind(out[[1]][,101:102],out[[2]][,101:102])
+
+#col, row - returns a matric of intefers indicated their column or row number in a matrix-like object
+#or a factor indicating the column or row labels
+
 ################################################
 ## Bonus exercises #############################
 ################################################
