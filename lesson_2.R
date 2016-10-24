@@ -12,15 +12,12 @@ for (i in 20:10){
 
 #calculate if a number is a prime number
 prime <- function(x){
-  for (i in 1:x){
-    if (x %% i == 0){
-      print(x)
-    }else{
-      break}
+  for (i in (x-1):2){
+    n <- x %% i
+  if(n == 0){
+    return(FALSE)
+   }
   }
+  return(TRUE)
 }
 
-
-
-prime numbers
-break!
