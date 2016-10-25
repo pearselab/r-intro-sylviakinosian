@@ -21,3 +21,12 @@ prime <- function(x){
   return(TRUE)
 }
 
+#loop that determines in a number is divisible by five or a prime number
+for (i in 1:20){
+  for (i in (x-1):2){
+    n <- x %% i
+    if(n == 0){
+      cat("Job:", x)
+    }
+  }
+}

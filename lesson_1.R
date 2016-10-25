@@ -78,6 +78,58 @@ y %*% z
 y %*% x
 x %*% z
 
+#lower.tri and upper.tri - l/u parts of a matrix
+#returns a matric of logials the same size of a given matrix with the entries TRUE
+#in the lower or upper triangle
+(m2 <- matrix(1:20, 4, 5))
+lower.tri(m2)
+m2[lower.tri(m2)] <- NA
+m2
+
+#gl - generate factor levels by specific the pattern of their levels
+## First control, then treatment:
+gl(2, 8, labels = c("Control", "Treat"))
+## 20 alternating 1s and 2s
+gl(2, 1, 20)
+## alternating pairs of 1s and 2s
+gl(2, 2, 20)
+
+#identical - test object for exact equality
+#returns true or false - good for if/while statements
+## the infamous example:
+identical(0., -0.) # TRUE, i.e. not differentiated
+identical(0., -0., num.eq = FALSE)
+
+#image - display a color image
+#grid of rectangles with colors corresponding to the values in z
+#math can be beautiful
+require(grDevices) # for colours
+x <- y <- seq(-4*pi, 4*pi, len = 27)
+r <- sqrt(outer(x^2, y^2, "+"))
+image(z = z <- cos(r^2)*exp(-r/6), col  = gray((0:32)/32))
+image(z, axes = FALSE, main = "Math can be beautiful ...",
+      xlab = expression(cos(r^2) * e^{-r/6}))
+contour(z, add = TRUE, drawlabels = FALSE)
+
+#library - loading/attaching and listing of packages
+#library and require load and attach add-on packages.
+library()                   # list all available packages
+library(lib.loc = .Library) # list all packages in the default library
+library(help = splines)     # documentation on package 'splines'
+library(splines)            # attach package 'splines'
+require(splines)            # the same
+search()                    # "splines", too
+detach("package:splines")
+
+# if the package name is in a character vector, use
+pkg <- "splines"
+library(pkg, character.only = TRUE)
+detach(pos = match(paste("package", pkg, sep = ":"), search()))
+
+#length - of an object
+length(x)
+length(x) <- value
+
 ################################################
 ## Bonus exercises #############################
 ################################################
