@@ -23,13 +23,11 @@ prime <- function(x){
 
 #4 loop that determines if a number is divisible by five or a prime number
 for (i in 1:20){
-  for (i in (x-1):2){
-    n <- x %% i
-    if(n == 0){
-      cat("Job:", x)
+  if (i %% 5){
+    cat("Good: ", i)
+  }
+  if(prime(i) == TRUE0){
+      cat("Job:", ix)
     }
   }
-  if (prime == TRUE){
-	print("Job: NUMBER")
- }
-}
+ 
