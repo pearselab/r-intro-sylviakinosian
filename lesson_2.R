@@ -1,16 +1,16 @@
-#loop that prints numbers 20 to 10
+#1 loop that prints numbers 20 to 10
 for (i in 20:10){
   print(i)
 }
 
-#calcluate if a number is even
+#2 calcluate if a number is even
 for (i in 20:10){
   if (i %% 2 == 0){
     print(i)
   }
 }
 
-#calculate if a number is a prime number
+#3 calculate if a number is a prime number
 prime <- function(x){
   for (i in (x-1):2){
     n <- x %% i
@@ -21,7 +21,7 @@ prime <- function(x){
   return(TRUE)
 }
 
-#loop that determines in a number is divisible by five or a prime number
+#4 loop that determines if a number is divisible by five or a prime number
 for (i in 1:20){
   for (i in (x-1):2){
     n <- x %% i
@@ -29,4 +29,7 @@ for (i in 1:20){
       cat("Job:", x)
     }
   }
+  if (prime == TRUE){
+	print("Job: NUMBER")
+ }
 }
