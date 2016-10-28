@@ -46,10 +46,21 @@ dist <- function(first, second){
 
 #4 implement a line class that draws a line between two points
 
+
 new.line <- function(draw){
 	output <- list(draw=plot())
 	class(output) <- "line"
 	return(output)
+}
 
  segments()
+ 
+ x1 <- point1$x
+ y1 <- point1$y
+ x2 <- point2$x
+ y2 <- point2$y
 
+plot(point1,point2)
+segments(x0=x1,y0=y1,x1=x2,y1=y2,col='red')
+
+ 

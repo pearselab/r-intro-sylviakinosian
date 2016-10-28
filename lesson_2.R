@@ -22,15 +22,19 @@ prime <- function(x){
 }
 
 #4 loop that determines if a number is divisible by five or a prime number
+#i know this isn't the best way to do this but i'm lost as how to make it more compact/better
 for (i in 1:20){
+    if (i == 5){
+     cat("Good Job:", i, "\n")
+    }
     if (i %% 5 == 0){
       cat("Good:", i, "\n")
-    }else{
-      if(prime(i) == TRUE){
-      cat("Job:", i, "\n")
+    }
+    if(prime(i) == TRUE){
+    cat("Job:", i, "\n")
       }
-   }
 }
+
 
 #5 function that calculates pop size using the Gompertz curve
 gompPop <- function(time, a, b, c){
@@ -61,5 +65,3 @@ box <- function(height, width){
     }
   }
 }
-
-
