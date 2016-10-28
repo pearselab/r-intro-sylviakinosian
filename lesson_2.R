@@ -12,9 +12,9 @@ for (i in 20:10){
 
 #3 calculate if a number is a prime number
 prime <- function(x){
-  for (i in (x-1):2){
+    for (i in (x-1):2){
     n <- x %% i
-  if(n == 0){
+  if(n == 0 | x == 1){
     return(FALSE)
    }
   }
@@ -23,11 +23,43 @@ prime <- function(x){
 
 #4 loop that determines if a number is divisible by five or a prime number
 for (i in 1:20){
-  if (i %% 5){
-    cat("Good: ", i)
-  }
-  if(prime(i) == TRUE0){
-      cat("Job:", ix)
+    if (i %% 5 == 0){
+      cat("Good:", i, "\n")
+    }else{
+      if(prime(i) == TRUE){
+      cat("Job:", i, "\n")
+      }
+   }
+}
+
+#5 function that calculates pop size using the Gompertz curve
+gompPop <- function(time, a, b, c){
+    y <- a * exp(-b * exp(-c * time))
+    cat("pop size =", y)
+}
+
+#6 plot the progression of #5 over time
+gompTime <- function(time, a, b, c){
+  y <- a * exp(-b * exp(-c * time))
+  t <- time
+  n <- seq(0:100)
+  for (i in 0:t)
+    plot(n,y)
+
+}
+
+#7
+
+#8
+
+#9f(x) that draws boxes with a specified h & w
+box <- function(height, width){
+    for (i in 1:width){
+      cat("*")
+      for (j in 1:height){
+      cat("*\n")
     }
   }
- 
+}
+
+

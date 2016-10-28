@@ -14,9 +14,10 @@ race <- function(first, second){
 	if(first$weight < second$weight){
 		print("First cat won the race!")
 		return(first)
-	}
+	} else{
 	print("Second cat won the race!")
 	return(second)
+	}
 }
 
 print.cat <- function(x, ...){
