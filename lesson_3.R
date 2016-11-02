@@ -9,19 +9,21 @@ Iris <- new.cat(weight=2.5, breed="calico")
 Yin <- new.cat(weight=5, breed="bombay")
 
 race <- function(first, second){
-       	if(!inherits(first, "cat") | !inherits(second, "cat"))
+    if(!inherits(first, "cat") | !inherits(second, "cat"))
 		stop("Need two cats!")
-	if(first$weight < second$weight){
+	  if(first$weight < second$weight){
 		print("First cat won the race!")
 		return(first)
-	} else{
-	print("Second cat won the race!")
-	return(second)
-	}
+	  } else{
+	  print("Second cat won the race!")
+	  return(second)
+	 }
 }
 
-print.cat <- function(x, ...){
-	cat("This", x$breed, "weighs", x$weight, "kg\n")
+print.cat <- function(x, verbose=F, ...){
+  if(verbose==T){
+	  cat("This", x$breed, "weighs", x$weight, "kg\n")
+  } else cat("Meow\n")
 }
 
 #2 implement a point class that hold x and y information for a point in space
@@ -46,21 +48,20 @@ dist <- function(first, second){
 
 #4 implement a line class that draws a line between two points
 
-
-new.line <- function(draw){
-	output <- list(draw=plot())
-	class(output) <- "line"
-	return(output)
+new.line <- function(p1, p2){
+    output <- list(x=x, y=y)
+    class(output) <- "line"
+    return(output)
 }
-
- segments()
- 
- x1 <- point1$x
- y1 <- point1$y
- x2 <- point2$x
- y2 <- point2$y
-
-plot(point1,point2)
-segments(x0=x1,y0=y1,x1=x2,y1=y2,col='red')
+  
+    if(!inherits(first, "point") | !inherits(second, "point"))
+      stop("Need two points!")
+    x1 <- point1$x
+    y1 <- point1$y
+    x2 <- point2$x
+    y2 <- point2$y
+    n <-
+    plot(point1,point2)
+    segments(x0=x1,y0=y1,x1=x2,y1=y2,col='red')
 
  

@@ -43,13 +43,18 @@ gompPop <- function(time, a, b, c){
 }
 
 #6 plot the progression of #5 over time
-gompTime <- function(time, a, b, c){
-  y <- a * exp(-b * exp(-c * time))
-  t <- time
-  n <- seq(0:100)
-  for (i in 0:t)
-    plot(n,y)
+#use the same inputs as gompPop
+#loop through the f(x) for each value of time
 
+gompTime <- function(time, a, b, c){
+    gompPop(time, a, b, c)
+
+    y <- a * exp(-b * exp(-c * time))
+
+    for (i in 1:length(time)){
+      y[i] ??? 
+      }
+    plot(????, popsize, xlab="Time", ylab="Pop Size", main="Gomp Style")
 }
 
 #7
