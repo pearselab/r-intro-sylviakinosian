@@ -75,7 +75,7 @@ gompPurp <- function(time, a, b, c){
 box <- function(height, width){
     cat(replicate(width,"*"))
     cat("\n")
-    for (i in 1:height){
+    for (i in 1:(height-2)){
       cat("*",replicate((width-2)," "),"*")
       cat("\n")
     }
@@ -90,7 +90,11 @@ wordBox <- function(height, width, word){
   n <- nchar(word)
   cat(replicate(width,"*"))
   cat("\n")
-  for (i in 1:height){
+  for (i in 1:(height-2)){
+    cat("*",replicate((width-2)," "),"*")
+    cat("\n")
+  }
+  for (i in 1:(height-2)){
     cat("*",replicate(((width-n)/2)," "),word,replicate(((width-n)/2)," "),"*")
     cat("\n")
   }
