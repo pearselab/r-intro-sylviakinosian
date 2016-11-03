@@ -89,12 +89,32 @@ gompPurp <- function(time, a, b, c){
   plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
 }
 
-#9f(x) that draws boxes with a specified h & w
+#9 f(x) that draws boxes with a specified h & w
+
 box <- function(height, width){
-    for (i in 1:width){
-      cat("*")
-      for (j in 1:height){
-      cat("*\n")
+    cat(replicate(width,"*"))
+    cat("\n")
+    for (i in 1:height){
+      cat("*",replicate((width-2)," "),"*")
+      cat("\n")
     }
-  }
+    cat(replicate(width,"*"))
+    cat("\n")
 }
+
+#10. Modify your box function to put text centred inside the box
+# count the number of characters in the word input, define as width
+
+wordBox <- function(height, width, word){
+  n <- nchar(word)
+  cat(replicate(width,"*"))
+  cat("\n")
+  for (i in 1:height){
+    cat("*",replicate(((width-n)/2)," "),word,(width," "),"*")
+    cat("\n")
+  }
+  cat(replicate(width,"*"))
+  cat("\n")
+}
+
+
