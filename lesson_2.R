@@ -34,21 +34,18 @@ for (i in 1:20){
 
 #5 function that calculates pop size using the Gompertz curve
 gompPop <- function(time, a, b, c){
-    y <- a * exp(-b * exp(-c * time))
-    cat("pop size =", y)
+    return(a * exp(-b * exp(-c * time)))
 }
 
 #6 plot the progression of #5 over time
 #use the same inputs as gompPop
 #loop through the f(x) for each value of time
-#Thank You Marley Haupt
+#Thank You Marley Haupt, 
+#also for loops are sometimes unecessary!!!
 
 gompTime <- function(time, a, b, c){
-    pop <- c(NA)
-    for (i in 1:length(time)){
-      pop[i] <- gompPop(i,a,b,c)
-    }
-    plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style")
+    t <- c(1:time)
+    plot(t, gompPop(t,a,b,c), xlab="Time", ylab="Pop Size", main="Gomp Style", type = "l")
 }
 
 #7. The biologist has fallen in love with your plotting function, but wants
@@ -56,36 +53,28 @@ gompTime <- function(time, a, b, c){
 # function to allow that.
 
 gompMagic <- function(time, a, b, c){
-    pop <- c(NA)
-    for (i in 1:length(time)){
-      pop[i] <- gompPop(i,a,b,c)
-      if (pop > a){
-        color[i] = "blue"
-      }else{
-        color[i] = "black"
-      }
-      if (pop > b){
-        color[i] = "red"
-      }else{
-        color[i] = "black"
-      }
+    t <- c(1:time)
+    color <- "black"
+    if (gompPop(t,a,b,c) > a){
+      color <- "blue"
+    }else{
+      color <- "black"
     }
-    plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
+    if (gompPop(t,a,b,c) > b){
+      color <- "red"
+    }else{
+      color <- "black"
+    }
+    plot(t, gompPop(t,a,b,c), xlab="Time", ylab="Pop Size", main="Gomp Style", type = "l", col = color)
 }
 
 #8 You are beginning to suspect the biologist is taking advantage of you.
 # Modify your function to plot in purple any y value that is above a and b.
 
 gompPurp <- function(time, a, b, c){
-  pop <- c(NA)
-  for (i in 1:length(time)){
-    pop[i] <- gompPop(i,a,b,c)
-    if (pop > a & pop > b){
-      color[i] = "purple"
-    }else{
-      color[i] = "black"
-    }
-  }
+  t <- c(1:time)
+  pop <- gompPop(t,a,b,c)
+  
   plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
 }
 
@@ -110,7 +99,7 @@ wordBox <- function(height, width, word){
   cat(replicate(width,"*"))
   cat("\n")
   for (i in 1:height){
-    cat("*",replicate(((width-n)/2)," "),word,(width," "),"*")
+    cat("*",replicate(((width-n)/2)," "),word,replicate(((width-n)/2)," "),"*")
     cat("\n")
   }
   cat(replicate(width,"*"))
