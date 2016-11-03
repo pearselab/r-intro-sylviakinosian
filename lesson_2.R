@@ -46,9 +46,9 @@ gompPop <- function(time, a, b, c){
 gompTime <- function(time, a, b, c){
     pop <- c(NA)
     for (i in 1:length(time)){
-      pop[i] <- gompPop(i,a,b,c)
+      pop <- gompPop(i,a,b,c)
     }
-    plot(x=time, y=pop[i], xlab="Time", ylab="Pop Size", main="Gomp Style")
+    plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style")
 }
 
 
