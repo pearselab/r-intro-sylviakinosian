@@ -20,6 +20,17 @@ best.summary <- function(x){
 	return(m)
 }
 
-#3: write a summary f(x) to summarise datasets only containing catagorical data
+apply(data,2,mean)
 
+#3: write a summary f(x) to summarise datasets only containing catagorical data
+#number of categories, 
+#mood of english v socts, who is happier
+#caffeine on mood - mood, caf, person
+#species, cover, abundance
+
+#4 sapply
+
+() call a function(
+[] subset
+)
 

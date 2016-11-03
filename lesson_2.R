@@ -85,6 +85,7 @@ box <- function(height, width){
 
 #10. Modify your box function to put text centred inside the box
 # count the number of characters in the word input, define as width
+#replicate = evaluate this expresstion x times
 
 wordBox <- function(height, width, word){
   n <- nchar(word)
