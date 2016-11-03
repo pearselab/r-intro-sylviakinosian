@@ -103,4 +103,6 @@ wordBox <- function(height, width, word){
   cat("\n")
 }
 
+### USE REP NOT REPLICATE
+
 #11
