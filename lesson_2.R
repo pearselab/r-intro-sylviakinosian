@@ -46,15 +46,48 @@ gompPop <- function(time, a, b, c){
 gompTime <- function(time, a, b, c){
     pop <- c(NA)
     for (i in 1:length(time)){
-      pop <- gompPop(i,a,b,c)
+      pop[i] <- gompPop(i,a,b,c)
     }
     plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style")
 }
 
+#7. The biologist has fallen in love with your plotting function, but wants
+# to color y values above a as blue and y values above b as red. Change your
+# function to allow that.
 
-#7
+gompMagic <- function(time, a, b, c){
+    pop <- c(NA)
+    for (i in 1:length(time)){
+      pop[i] <- gompPop(i,a,b,c)
+      if (pop > a){
+        color[i] = "blue"
+      }else{
+        color[i] = "black"
+      }
+      if (pop > b){
+        color[i] = "red"
+      }else{
+        color[i] = "black"
+      }
+    }
+    plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
+}
 
-#8
+#8 You are beginning to suspect the biologist is taking advantage of you.
+# Modify your function to plot in purple any y value that is above a and b.
+
+gompPurp <- function(time, a, b, c){
+  pop <- c(NA)
+  for (i in 1:length(time)){
+    pop[i] <- gompPop(i,a,b,c)
+    if (pop > a & pop > b){
+      color[i] = "purple"
+    }else{
+      color[i] = "black"
+    }
+  }
+  plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
+}
 
 #9f(x) that draws boxes with a specified h & w
 box <- function(height, width){
