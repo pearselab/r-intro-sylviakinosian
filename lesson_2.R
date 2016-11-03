@@ -22,11 +22,8 @@ prime <- function(x){
 }
 
 #4 loop that determines if a number is divisible by five or a prime number
-#i know this isn't the best way to do this but i'm lost as how to make it more compact/better
+
 for (i in 1:20){
-    if (i == 5){
-     cat("Good Job:", i, "\n")
-    }
     if (i %% 5 == 0){
       cat("Good:", i, "\n")
     }
@@ -34,7 +31,6 @@ for (i in 1:20){
     cat("Job:", i, "\n")
       }
 }
-
 
 #5 function that calculates pop size using the Gompertz curve
 gompPop <- function(time, a, b, c){
@@ -45,17 +41,16 @@ gompPop <- function(time, a, b, c){
 #6 plot the progression of #5 over time
 #use the same inputs as gompPop
 #loop through the f(x) for each value of time
+#Thank You Marley Haupt
 
 gompTime <- function(time, a, b, c){
-    gompPop(time, a, b, c)
-
-    y <- a * exp(-b * exp(-c * time))
-
+    pop <- c(NA)
     for (i in 1:length(time)){
-      y[i] ??? 
-      }
-    plot(????, popsize, xlab="Time", ylab="Pop Size", main="Gomp Style")
+      pop[i] <- gompPop(i,a,b,c)
+    }
+    plot(x=time, y=pop[i], xlab="Time", ylab="Pop Size", main="Gomp Style")
 }
+
 
 #7
 
