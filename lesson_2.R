@@ -55,16 +55,8 @@ gompTime <- function(time, a, b, c){
 gompMagic <- function(time, a, b, c){
     t <- c(1:time)
     color <- "black"
-    if (gompPop(t,a,b,c) > a){
-      color <- "blue"
-    }else{
-      color <- "black"
-    }
-    if (gompPop(t,a,b,c) > b){
-      color <- "red"
-    }else{
-      color <- "black"
-    }
+    color[gompPop(t,a,b,c) > a] <- "blue"
+    color[gompPop(t,a,b,c) > b] <- "red"
     plot(t, gompPop(t,a,b,c), xlab="Time", ylab="Pop Size", main="Gomp Style", type = "l", col = color)
 }
 
@@ -73,9 +65,9 @@ gompMagic <- function(time, a, b, c){
 
 gompPurp <- function(time, a, b, c){
   t <- c(1:time)
-  pop <- gompPop(t,a,b,c)
-  
-  plot(x=time, y=pop, xlab="Time", ylab="Pop Size", main="Gomp Style", col = color)
+  color <- "black"
+  color[gompPop(t,a,b,c) > a & gompPop(t,a,b,c) > b] <- "purple"
+  plot(t, gompPop(t,a,b,c), xlab="Time", ylab="Pop Size", main="Gomp Style", type = "l", col = color)
 }
 
 #9 f(x) that draws boxes with a specified h & w
@@ -106,4 +98,4 @@ wordBox <- function(height, width, word){
   cat("\n")
 }
 
-
+#11
