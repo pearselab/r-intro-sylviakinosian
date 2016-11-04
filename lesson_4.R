@@ -30,7 +30,9 @@ best.summary(reptar)
 #number of categories, 
 #types of classes in a guild
 
-guild <- list(Class = c("warrior","mage","warrior","rouge","preist",
+sapply
+
+guild <- c("warrior","mage","warrior","rouge","preist",
                                 "druid","druid","druid","hunter","warlock"))
 
 sum.class <- function(data){

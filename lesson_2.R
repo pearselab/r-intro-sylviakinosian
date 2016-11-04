@@ -103,7 +103,7 @@ wordBox <- function(height, width, word){
       cat("\n")
     }
     cat("*",rep(" ",x),word,rep(" ",x),"*")
-    for (i in (floor(height/2)+1:height)){
+    for (i in (floor(height/2)-2:height)){
       cat("*",rep(" ",(width-2)),"*")
       cat("\n")
     }

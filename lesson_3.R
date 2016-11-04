@@ -50,6 +50,11 @@ dist(point1,point2)
 
 #4 Implement a line class that takes two point objects and makes a line between them.
 
+plot.line <- draw
+plot(segment)
+
+circle function to plot a circle
+
 new.line <- function(first, second){
     if(!inherits(first, "point") | !inherits(second, "point"))
     stop("Need two points!")
@@ -75,11 +80,45 @@ draw <- function(line){
 point3 <- new.point(x=3,y=5)
 point4 <- new.point(x=6,y=2)
 
-new.polygon <- function(first, second, third, fourth){
+plot.poly <- function(first, second, third, fourth){
   if(!inherits(first, "point") | !inherits(second, "point") | !inherits(third,"point") | !inherits(fourth,"point"))
-    stop("Need lines!")
+    stop("Need points to make lines!")
   output <- list(first = first, second = second, third = third, fourth = fourth)
   class(output) <- "polygon"
   return(output)
 }
- 
+
+plot.poly(point1,point2,point3,point4)
+
+
+#6 Write plot methods for point and line objects.
+
+draw.point <- function(point){
+  if (!inherits(point,"point"))
+    stop("Need a point")
+  plot(point)
+}
+
+#same as above in #4
+draw.line <- function(line){
+  if (!inherits(line,"line"))
+    stop("Need two points!")
+  x<-c(line$point1$x,line$point2$x)
+  y<-c(line$point1$y,line$point2$y)
+  plot(x,y)
+  segments(x0=x[1],y0=y[1],x1=x[2],y1=y[2],col='red')
+}
+
+#7. Write a plot method for a polygon. Hint: if this isn’t trivial, you’re doing something wrong.
+
+plot.polygon <- function(polygon){
+  if (!inherits(polygon,"polygon"))
+    stop("Need a polygon!")
+  
+  for (
+}
+
+#8. Create a canvas object that the add function can add point, line, circle, and polygon objects to. Write plot and print methods for this class.
+
+#9. Implement a circle object that takes a point and a radius and stores a circle. Don’t make a circle out of lines!
+  
