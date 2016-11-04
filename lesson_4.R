@@ -27,33 +27,27 @@ best.summary <- function(data){
 best.summary(reptar)
 
 #3: write a summary f(x) to summarise datasets only containing catagorical data
-#number of categories, 
-#types of classes in a guild
-
+#tells you how many unique characters there are in your categorical variable
 sapply
 
-guild <- c("warrior","mage","warrior","rouge","preist",
-                                "druid","druid","druid","hunter","warlock"))
+lttrs <- replicate(2,sample(letters[1:26],10,replace=T))
 
-sum.class <- function(data){
+sum.cat <- function(data){
   if(is.numeric(data)){
     print("nope, need categorical data!")
   }
-  w <- grep("warrior",data)
-  m <- grep("mage",data)
-  r <- grep("rouge",data)
-  p <- grep("preist",data)
-  d <- grep("druid",data)
-  h <- grep("hunter",data)
-  k <- grep("warlock",data)
-  cat("warrior",w,"\n","mage",m,"\n","rouge",r,"\n","preist",p,"\n","druid",d,"\n",
-        "hunter",h,"\n","warlock",k,"\n")
+  x <- unique(data)
+  y <- apply(x, 2, length)
+  return(y)
+  m <- matrix(data= c(min, mean, max), nrow = 3, ncol = ncol(data), 
+              dimnames = list(c("Min","Mean","Max"),c(colnames(data)))) 
+  return(m)
 }
 
 
 #4 sapply
 
-sum.any <- function(data){
+sum.any <- function(data,...){
   if(is.numeric(data)){
     best.summary(data)
   }
