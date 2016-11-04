@@ -89,32 +89,37 @@ box <- function(height, width){
 
 wordBox <- function(height, width, word){
   #make the height odd to properly center the word
-  if (is.integer(height/2)){
+  if (height %% 2 == 0){
     height <- height + 1
   }
   n <- nchar(word)
   x <- width/2
-  if (n > x){
+  if (n > (width-2)){
     print("need a wider box")
   }else{
     cat(rep("*",width),"\n")
-    for (i in 1:(height-2)){
+    for (i in 1:(floor(height/2)-1)){
       cat("*",rep(" ",(width-2)),"*")
       cat("\n")
     }
-    if (i == height/2){
-      
+    cat("*",rep(" ",x),word,rep(" ",x),"*")
+    for (i in (floor(height/2)+1:height)){
+      cat("*",rep(" ",(width-2)),"*")
+      cat("\n")
     }
-    if (is.integer(x)){
-        cat("*",rep(" ",x),word,rep(" ",x),"*")
-      }else{
-        cat("*",rep(" ",(x+1)),word,rep(" ",(x+1)),"*")
-      }
+    cat(rep("*",width),"\n")
     }
-}
-  cat(rep("*",width),"\n")
+    
 }
 
+}
+
+if (is.integer(x)){
+  cat("*",rep(" ",x),word,rep(" ",x),"*")
+}else{
+  cat("*",rep(" ",(x+1)),word,rep(" ",(x+1)),"*")
+}
+}
 
 
 #11
