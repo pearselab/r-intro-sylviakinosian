@@ -49,7 +49,6 @@ dist <- function(first, second){
 dist(point1,point2)
 
 #4 Implement a line class that takes two point objects and makes a line between them.
-#I cannot figure out why this doesn't work
 
 new.line <- function(first, second){
     if(!inherits(first, "point") | !inherits(second, "point"))
@@ -61,17 +60,12 @@ new.line <- function(first, second){
 
 segment <- new.line(point1,point2)
 
-draw <- function (line){
-    if(!inherits(line, "line")){
-      stop("Need two points!")
-    }
-    x1 <- line$point1$x
-    y1 <- line$point1$y
-    x2 <- line$point2$x
-    y2 <- line$point2$y
-    x <- c(x1,x2)
-    y <- c(y1,y2)
-    plot(x,y)
-    #segments(x0=x1,y0=y1,x1=x2,y1=y2,col='red')
+draw <- function(line){
+  if (!inherits(line,"line"))
+    stop("Need two points!")
+  x<-c(line$point1$x,line$point2$x)
+  y<-c(line$point1$y,line$point2$y)
+  plot(x,y)
+  segments(x0=x[1],y0=y[1],x1=x[2],y1=y[2],col='red')
 }
  
