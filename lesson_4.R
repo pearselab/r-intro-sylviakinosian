@@ -28,7 +28,7 @@ best.summary(reptar)
 
 #3: write a summary f(x) to summarise datasets only containing catagorical data
 #tells you how many unique characters there are in your categorical variable
-sapply
+#sapply
 
 lttrs <- replicate(2,sample(letters[1:26],10,replace=T))
 
@@ -45,7 +45,7 @@ sum.cat <- function(data){
 }
 
 
-#4 sapply
+#4 summary function for categorical and numeric
 
 sum.any <- function(data,...){
   if(is.numeric(data)){
