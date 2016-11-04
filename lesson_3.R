@@ -26,7 +26,7 @@ print.cat <- function(x, verbose=F, ...){
   } else cat("Meow\n")
 }
 
-#2 implement a point class that hold x and y information for a point in space
+#2 implement a point class that holds x and y information for a point in space
 
 new.point <- function(x, y){
         output <- list(x=x, y=y)
@@ -65,7 +65,7 @@ new.line <- function(first, second){
 
 segment <- new.line(point1,point2)
 
-draw <- function(line){
+plot.line <- function(line){
   if (!inherits(line,"line"))
     stop("Need two points!")
   x<-c(line$point1$x,line$point2$x)
@@ -74,15 +74,17 @@ draw <- function(line){
   segments(x0=x[1],y0=y[1],x1=x[2],y1=y[2],col='red')
 }
 
+plot.line(segment)
+
 #5 Implement a polygon class that stores a polygon from point objects. 
 #Hint: a polygon is really just a load of lines.
 
-point3 <- new.point(x=2,y=5)
+point3 <- new.point(x=2,y=6)
 
 seg2 <- new.line(point2,point3)
 seg3 <- new.line(point3,point1)
 
-plot.pg <- function(first, second, third){
+new.pg <- function(first, second, third){
   if(!inherits(first, "line") | !inherits(second, "line") | !inherits(third,"line"))
     stop("Need lines!")
   output <- list(first = first, second = second, third = third)
@@ -90,7 +92,7 @@ plot.pg <- function(first, second, third){
   return(output)
 }
 
-poly1 <- plot.pg(segment,seg2,seg3)
+poly1 <- new.pg(segment,seg2,seg3)
 
 #6 Write plot methods for point and line objects.
 
@@ -112,12 +114,24 @@ plot.line <- function(line){
 
 #7. Write a plot method for a polygon. Hint: if this isn’t trivial, you’re doing something wrong.
 
-plot.polygon <- function(polygon){
+#I tired using this sort of setup, but was unable to get it to work. I think I just really don't
+#understand everything that's going on here...
+#my_func <- function(x, first=TRUE, ...){
+#if(first)
+#  plot(some.plotting.code, type="n")
+#points(some.plotting.code) #...or lines, or ....
+#}
+#my_func(first.point)
+#my_func(second.point, FALSE)
+
+#three lines are printed on the same graph, but something's not right
+
+plot.pg <- function(polygon){
   if (!inherits(polygon,"polygon"))
     stop("Need a polygon!")
   plot(poly1$first)
-  segments(plot(poly1$second))
-  draw.line(poly1$third)
+  lines(poly1$second$point1,poly1$second$point2,col="blue")
+  lines(poly1$third$point1,poly1$third$point2)
 }
 
 #8. Create a canvas object that the add function can add point, line, circle, and polygon objects to. Write plot and print methods for this class.

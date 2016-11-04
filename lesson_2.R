@@ -127,10 +127,28 @@ if (is.integer(x)){
 #12. In ecology, hurdle models are often used to model the abundance of species found on surveys. 
 #They first model the probability that a species will be present at a site (drawn, for example, 
 #from a Bernoulli distribution) and then model the abundance for any species that is present 
-#(drawn, for example, from the Poisson distribution). Write a function that simulates the abundance
+#(drawn, for example, from the Poisson distribution). 
+
+#Write a function that simulates the abundance
 #of a species at n sites given a probability of presence (p) and that its abundance is drawn from 
 #a Poisson with a given λ. Hint: there is no Bernoulli distribution in R, but the Bernoulli is a 
 #special case of what distribution?...
+
+#model p of species at a site (binom) -> 1 = species presence 
+#if present, model abundance for any species that is present
+
+abundance <- function(sites){
+  y <- c(1:sites)
+  for (i in 1:sites){
+    p[i] <- rbinom(1,1,0.5)
+  
+    if (p = 1){
+      a <- rpois(1,runif(1,min=0))
+    }else{
+      return(p)
+    }
+  }
+}
 
 #13. An ecologist really likes your hurdle function (will you never learn?). Write them a 
 #function that simulates lots of species (each with their own p and λ ) across n sites. Return the 
