@@ -1,16 +1,13 @@
 #1: create a dataset of 10 variables each drawn from a Normal distribution with different mean and variances
 #rnorm for a random draw for each mean, runif with a min = 0 for sd b/c cd cannot be less than 0
 
-reptar <- replicate(1, rnorm(10,rnorm(1),runif(1, min = 0)), simplify = "array")
+replicate(1, rnorm(10,rnorm(1),runif(1, min = 0)), simplify = "array")
 
 #2: make your summary own function
 # ft. mean etc, quantiles
 #I couldn't figure out how to use apply to get quantiles, but min/mean/max is better than nothing I suppose.
  
-#make a data frame
-#reptar <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
-#r2 <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
-#new <- cbind(reptar,r2)
+reptar <- replicate(10, rnorm(10,rnorm(1),runif(1, min = 0)), simplify = "array")
 
 best.summary <- function(data){
   if(!is.numeric(data)){

@@ -83,23 +83,21 @@ box <- function(height, width){
 #10. Modify your box function to put text centred inside the box
 # count the number of characters in the word input, define as width
 #replicate = evaluate this expresstion x times
+#use rep here
 #if nchar() > width, use nchar
 #h & w made even so the text can 
 
 wordBox <- function(height, width, word){
+  #make the height odd to properly center the word
   if (is.integer(height/2)){
     height <- height + 1
   }
-  if (is.integer(width/2)){
-    width <- width + 1 
-  }
   n <- nchar(word)
   x <- width/2
-  
-  cat(rep("*",width),"\n")
-  if (n > width-2){
+  if (n > x){
     print("need a wider box")
   }else{
+    cat(rep("*",width),"\n")
     for (i in 1:(height-2)){
       cat("*",rep(" ",(width-2)),"*")
       cat("\n")
@@ -117,6 +115,6 @@ wordBox <- function(height, width, word){
   cat(rep("*",width),"\n")
 }
 
-### USE REP NOT REPLICATE
+
 
 #11
