@@ -1,18 +1,18 @@
 #1: create a dataset of 10 variables each drawn from a Normal distribution with different mean and variances
 #rnorm for a random draw for each mean, runif with a min = 0 for sd b/c cd cannot be less than 0
 
-replicate(10, rnorm(1,rnrom(1),runif(1, min = 0)), simplify = "array")
+replicate(10, rnorm(1,rnorm(1),runif(1, min = 0)), simplify = "array")
 
 #2: make your summary function
-# ft. mean, cd, quantiles
+# ft. mean etc, quantiles
  
-reptar <- rnorm(50, rnorm(1), runif(1, min = 0)) 
+reptar <- replicate(10, rnorm(1,rnorm(1),runif(1, min = 0)), simplify = "array")
 
-best.summary <- function(x){
-	min <- min(x)
-	mean <- mean(x)
-	max <- max(x)
-	quan2 <- quantile(x, probs = 0.025)
+best.summary <- function(data){
+	min <- apply(data,2,min)
+	mean <- apply(data,2,mean)
+	max <- apply(data,2,max)
+	quan2 <- apply(data,2,quantile(x, probs = 0.025))
 	quan5 <- quantile(x, probs = 0.5)
 	quan9 <- quantile(x, probs = 0.975)
 	m <- matrix(data= c(min, mean, max, quan2, quan5, quan9), nrow = 1, ncol = 6, 

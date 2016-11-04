@@ -73,34 +73,48 @@ gompPurp <- function(time, a, b, c){
 #9 f(x) that draws boxes with a specified h & w
 
 box <- function(height, width){
-    cat(replicate(width,"*"))
-    cat("\n")
+    cat(rep("*",width),"\n")
     for (i in 1:(height-2)){
-      cat("*",replicate((width-2)," "),"*")
-      cat("\n")
+      cat("*",rep(" ",(width-2)),"*","\n")
     }
-    cat(replicate(width,"*"))
-    cat("\n")
+    cat(replicate(width,"*"),"\n")
 }
 
 #10. Modify your box function to put text centred inside the box
 # count the number of characters in the word input, define as width
 #replicate = evaluate this expresstion x times
+#if nchar() > width, use nchar
+#h & w made even so the text can 
 
 wordBox <- function(height, width, word){
+  if (is.integer(height/2)){
+    height <- height + 1
+  }
+  if (is.integer(width/2)){
+    width <- width + 1 
+  }
   n <- nchar(word)
-  cat(replicate(width,"*"))
-  cat("\n")
-  for (i in 1:(height-2)){
-    cat("*",replicate((width-2)," "),"*")
-    cat("\n")
-  }
-  for (i in 1:(height-2)){
-    cat("*",replicate(((width-n)/2)," "),word,replicate(((width-n)/2)," "),"*")
-    cat("\n")
-  }
-  cat(replicate(width,"*"))
-  cat("\n")
+  x <- width/2
+  
+  cat(rep("*",width),"\n")
+  if (n > width-2){
+    print("need a wider box")
+  }else{
+    for (i in 1:(height-2)){
+      cat("*",rep(" ",(width-2)),"*")
+      cat("\n")
+    }
+    if (i == height/2){
+      
+    }
+    if (is.integer(x)){
+        cat("*",rep(" ",x),word,rep(" ",x),"*")
+      }else{
+        cat("*",rep(" ",(x+1)),word,rep(" ",(x+1)),"*")
+      }
+    }
+}
+  cat(rep("*",width),"\n")
 }
 
 ### USE REP NOT REPLICATE
