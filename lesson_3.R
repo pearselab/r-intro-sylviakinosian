@@ -68,4 +68,6 @@ draw <- function(line){
   plot(x,y)
   segments(x0=x[1],y0=y[1],x1=x[2],y1=y[2],col='red')
 }
+
+#5
  

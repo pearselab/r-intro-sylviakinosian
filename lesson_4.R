@@ -3,24 +3,31 @@
 
 replicate(10, rnorm(1,rnorm(1),runif(1, min = 0)), simplify = "array")
 
-#2: make your summary function
+#better option
+reptar <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
+
+#2: make your summary own function
 # ft. mean etc, quantiles
+#I couldn't figure out how to use apply to get quantiles, but min/mean/max is better than nothing I suppose.
  
-reptar <- replicate(10, rnorm(1,rnorm(1),runif(1, min = 0)), simplify = "array")
+#make a data frame
+reptar <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
+r2 <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
+new <- cbind(reptar,r2)
 
 best.summary <- function(data){
 	min <- apply(data,2,min)
 	mean <- apply(data,2,mean)
 	max <- apply(data,2,max)
-	quan2 <- apply(data,2,quantile(x, probs = 0.025))
-	quan5 <- quantile(x, probs = 0.5)
-	quan9 <- quantile(x, probs = 0.975)
-	m <- matrix(data= c(min, mean, max, quan2, quan5, quan9), nrow = 1, ncol = 6, 
-			dimnames = list(NULL,c("Min","Mean","Max","0.025","0.5","97.5"))) 
+	#quan2 <- apply(data,2,quantile)
+	#quan5 <- quantile(new, probs = 0.5)
+	#quan9 <- quantile(x, probs = 0.975)
+	m <- matrix(data= c(min, mean, max), nrow = 3, ncol = ncol(data), 
+			dimnames = list(c("Min","Mean","Max"),c(colnames(data)))) 
 	return(m)
 }
 
-apply(data,2,mean)
+best.summary(new)
 
 #3: write a summary f(x) to summarise datasets only containing catagorical data
 #number of categories, 
