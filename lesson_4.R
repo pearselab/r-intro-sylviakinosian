@@ -16,10 +16,13 @@ r2 <- rep(rnorm(10,rnorm(1),runif(1, min = 0)),1)
 new <- cbind(reptar,r2)
 
 best.summary <- function(data){
+  if(!is.numeric(data) | !is.matrix(data)){
+    print("nope, need numeric matrix!")
+  }
 	min <- apply(data,2,min)
 	mean <- apply(data,2,mean)
 	max <- apply(data,2,max)
-	#quan2 <- apply(data,2,quantile)
+	#quan2 <- lapply(data,quantile, probs = 1)
 	#quan5 <- quantile(new, probs = 0.5)
 	#quan9 <- quantile(x, probs = 0.975)
 	m <- matrix(data= c(min, mean, max), nrow = 3, ncol = ncol(data), 
@@ -31,13 +34,35 @@ best.summary(new)
 
 #3: write a summary f(x) to summarise datasets only containing catagorical data
 #number of categories, 
-#mood of english v socts, who is happier
-#caffeine on mood - mood, caf, person
-#species, cover, abundance
+#types of classes in a guild
+
+guild <- list(Class = c("warrior","mage","warrior","rouge","preist",
+                                "druid","druid","druid","hunter","warlock"))
+
+sum.class <- function(data){
+  if(is.numeric(data)){
+    print("nope, need categorical data!")
+  }
+  w <- grep("warrior",data)
+  m <- grep("mage",data)
+  r <- grep("rouge",data)
+  p <- grep("preist",data)
+  d <- grep("druid",data)
+  h <- grep("hunter",data)
+  k <- grep("warlock",data)
+  cat("warrior",w,"\n","mage",m,"\n","rouge",r,"\n","preist",p,"\n","druid",d,"\n",
+        "hunter",h,"\n","warlock",k,"\n")
+}
+
 
 #4 sapply
 
-() call a function(
-[] subset
-)
+sum.any <- function(data){
+  if(is.numeric(data)){
+    best.summary(data)
+  }
+  if(!is.numeric(data)){
+    sum.class(data)
+  }
+}
 

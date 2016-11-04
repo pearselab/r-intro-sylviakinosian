@@ -69,5 +69,17 @@ draw <- function(line){
   segments(x0=x[1],y0=y[1],x1=x[2],y1=y[2],col='red')
 }
 
-#5
+#5 Implement a polygon class that stores a polygon from point objects. 
+#Hint: a polygon is really just a load of lines.
+
+point3 <- new.point(x=3,y=5)
+point4 <- new.point(x=6,y=2)
+
+new.polygon <- function(first, second, third, fourth){
+  if(!inherits(first, "point") | !inherits(second, "point") | !inherits(third,"point") | !inherits(fourth,"point"))
+    stop("Need lines!")
+  output <- list(first = first, second = second, third = third, fourth = fourth)
+  class(output) <- "polygon"
+  return(output)
+}
  
